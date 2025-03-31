@@ -1,0 +1,55 @@
+<!DOCTYPE html> <!-- Declara que este é um documento HTML -->
+<html lang="en"> <!-- Define a linguagem da página como inglês -->
+<head>
+    <meta charset="UTF-8"> <!-- Permite usar caracteres especiais, como acentos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Faz a página se ajustar a diferentes tamanhos de tela, como celulares -->
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Conecta o arquivo CSS para dar estilo à página -->
+    
+    <title>Galeria</title> <!-- Define o título que aparece na aba do navegador -->
+</head>
+<body> <!-- Aqui começa o conteúdo visível da página -->
+    <h1 class="titulo">Minha Galeria</h1>
+   <div class="galeria-wrap"> <!-- Uma "caixa" que envolve os botões e a galeria -->
+    <img id="voltarBotao" src="images/back.png" alt=""> <!-- Botão de voltar, uma imagem com ID "voltarBotao" -->
+        <div class="galeria"> <!-- A área onde ficam as imagens da galeria -->
+            <div> <!-- Primeiro grupo de 3 imagens -->
+                <span><img src="images/1.jpg" alt=""></span> <!-- Imagem 1 dentro de um "span" para organização -->
+                <span><img src="images/2.jpg" alt=""></span> <!-- Imagem 2 -->
+                <span><img src="images/3.jpg" alt=""></span> <!-- Imagem 3 -->
+            </div>
+            <div> <!-- Segundo grupo de 3 imagens -->
+                <span><img src="images/4.jpg" alt=""></span> <!-- Imagem 4 -->
+                <span><img src="images/5.jpg" alt=""></span> <!-- Imagem 5 -->
+                <span><img src="images/6.jpg" alt=""></span> <!-- Imagem 6 -->
+            </div>
+        </div>
+        <img id="proximoBotao" src="images/next.png" alt=""> <!-- Botão de avançar, uma imagem com ID "proximoBotao" -->
+   </div>
+
+   <script>
+    // Pega a área da galeria e os botões para manipulá-los
+    let scrollC = document.querySelector(".galeria"); // Seleciona a classe "galeria"
+    let voltarBotao = document.getElementById("voltarBotao"); // Seleciona o botão de voltar pelo ID
+    let proximoBotao = document.getElementById("proximoBotao"); // Seleciona o botão de avançar pelo ID
+    
+    // Adiciona uma ação quando a rodinha do mouse é usada na galeria
+    scrollC.addEventListener("wheel", (e) => {
+        e.preventDefault(); // Impede o comportamento padrão da rodinha (rolar a página inteira)
+        scrollC.scrollLeft += e.deltaY; // Move a galeria para a esquerda ou direita com base na rolagem da rodinha
+        scrollC.style.scrollBehavior = "auto"; // Faz o movimento ser instantâneo (sem animação suave)
+    });
+    
+    // Adiciona uma ação ao clicar no botão "próximo"
+    proximoBotao.addEventListener("click", () => {
+        scrollC.style.scrollBehavior = "smooth"; // Faz o movimento ser suave
+        scrollC.scrollLeft += 900; // Rola a galeria 900 pixels para a direita
+    });
+
+    // Adiciona uma ação ao clicar no botão "voltar"
+    voltarBotao.addEventListener("click", () => {
+        scrollC.style.scrollBehavior = "smooth"; // Faz o movimento ser suave
+        scrollC.scrollLeft -= 900; // Rola a galeria 900 pixels para a esquerda
+    });
+</script>
+</body>
+</html>

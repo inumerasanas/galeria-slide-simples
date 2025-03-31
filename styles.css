@@ -1,0 +1,74 @@
+/* Estiliza TODOS os elementos da página */
+* {
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimentos padrão */
+    font-family: 'Poppins', sans-serif; /* Define a fonte (não usada aqui, mas útil para textos) */
+    box-sizing: border-box; /* Faz os tamanhos incluírem bordas e preenchimentos */
+}
+
+/* Estiliza o corpo da página */
+body {
+    background: #191919; /* Define o fundo como cinza escuro */
+}
+
+/* Estilizando o título */
+.titulo {
+    text-align: center; /* Centraliza o texto horizontalmente */
+    color: #ffffff; /* Define a cor do texto como branco para contrastar com o fundo escuro */
+    font-size: 36px; /* Define o tamanho da fonte (ajuste conforme quiser) */
+    font-family: 'Poppins';
+    margin-top: 120px; /* Adiciona espaço acima do título */
+    margin-bottom: 20px; /* Adiciona espaço abaixo do título, separando-o do carrossel */
+}
+
+/* Estiliza a área da galeria */
+.galeria {
+    width: 900px; /* Define a largura fixa da galeria */
+    display: flex; /* Coloca os elementos internos (os grupos de imagens) lado a lado */
+    overflow-x: scroll; /* Permite rolar horizontalmente se as imagens não couberem */
+}
+
+/* Estiliza os grupos de imagens dentro da galeria */
+.galeria div {
+    width: 100%; /* Cada grupo ocupa toda a largura da galeria */
+    display: grid; /* Organiza as imagens em uma grade */
+    grid-template-columns: auto auto auto; /* Cria 3 colunas automáticas para as imagens */
+    grid-gap: 20px; /* Adiciona 20 pixels de espaço entre as imagens */
+    padding: 10px; /* Adiciona um espaço interno de 10 pixels */
+    flex: none; /* Impede que os grupos sejam "esmagados" pelo flex */
+}
+
+/* Estiliza as imagens dentro dos grupos */
+.galeria div img {
+    width: 100%; /* Faz as imagens ocuparem toda a largura da coluna */
+    filter: grayscale(100); /* Deixa as imagens em preto e branco por padrão */
+    transition: transform 0.5s; /* Faz mudanças (como aumento) acontecerem suavemente em 0,5 segundos */
+    cursor: pointer; /* Mostra uma "mãozinha" ao passar o mouse, indicando que é clicável */
+}
+
+/* Esconde a barra de rolagem padrão da galeria */
+.galeria::-webkit-scrollbar {
+    display: none; /* Remove a barra para deixar o design mais limpo */
+}
+
+/* Estiliza a "caixa" que envolve a galeria e os botões */
+.galeria-wrap {
+    display: flex; /* Coloca os itens (botão de voltar, galeria e botão de avançar) lado a lado */
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    margin: 10% auto; /* Dá um espaço de 10% nas laterais e centraliza na página */
+}
+
+/* Estiliza os botões de voltar e avançar */
+#voltarBotao, #proximoBotao {
+    width: 50px; /* Define a largura dos botões como 50 pixels */
+    cursor: pointer; /* Mostra a "mãozinha" ao passar o mouse */
+    margin: 40px; /* Adiciona 40 pixels de espaço ao redor dos botões */
+}
+
+/* Define o que acontece quando o mouse passa sobre uma imagem */
+.galeria div img:hover {
+    filter: grayscale(0); /* Remove o preto e branco, mostrando a cor original */
+    cursor: pointer; /* Reforça que a imagem é clicável */
+    transform: scale(1.1); /* Aumenta a imagem em 10% (1.1 vezes o tamanho normal) */
+}
